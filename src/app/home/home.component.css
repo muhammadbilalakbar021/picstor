@@ -1,0 +1,47 @@
+html, body, header, #intro {
+    height: 700px;
+}
+
+#intro {
+    background: url("https://wallpaperaccess.com/full/2126431.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.top-nav-collapse {
+    background-color: black !important;
+}
+
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        background-color: #24355C;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+    .navbar:not(.top-nav-collapse) {
+        background-color: #24355C;
+    }
+}
+
+.module {
+    height: 100%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.slick-slider {
+    width: 90%;
+    margin: auto;
+}
+
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+    height: 100%;
+}
