@@ -1,1 +1,75 @@
-<p>improved-picture-quality works!</p>
+<div id="intro" class="view">
+    <div class="mask rgba-black-strong">
+        <div class="
+        container-fluid
+        d-flex
+        align-items-center
+        justify-content-center
+        h-100
+      ">
+            <div class="row d-flex justify-content-center text-center">
+                <div class="col-md-12">
+                    <!-- Heading -->
+                    <h2 class="display-4 font-weight-bold white-text pt-5 mb-2">
+                        Improved Picture Quality
+                    </h2>
+
+                    <!-- Divider -->
+                    <hr class="hr-light" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5 center">
+            <ngx-file-drop [dropZoneClassName]="'upload-background-image'" dropZoneLabel="Drop files here"
+                (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                    Optional custom content that replaces the the entire default content.
+                    <!-- <button type="button" cdkDrag style="position: absolute; right: 0; bottom: 0"
+                        (click)="openFileSelector()">
+                        Browse Files
+                    </button> -->
+                    <button type="button" class="btn btn-outline-info cdkButton" cdkDrag style="width: 80%"
+                        data-mdb-ripple-color="dark" (click)="openFileSelector()">
+                        Info
+                    </button>
+                </ng-template>
+            </ngx-file-drop>
+        </div>
+        <div class="col-md-6  mt-5 center">
+            <a class="ripple" *ngFor="let item of files; let i = index">
+                <img alt="example" class="img-fluid rounded" src="../../assets/Themes/{{item.relativePath}}" />
+            </a>
+        </div>
+    </div>
+    <!-- <div cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" cdkDrag >
+            Dragging starts after one second
+          </div>
+          <div class="example-box" cdkDrag>
+            Dragging starts after one second
+          </div>
+      </div> -->
+    <div class="center">
+        <div class="upload-table">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody class="upload-name-style">
+                    <tr *ngFor="let item of files; let i = index">
+                        <td>
+                            <strong>{{ item.relativePath }}</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -41,9 +41,9 @@
             </ngx-file-drop>
         </div>
         <div class="col-md-6  mt-5 center">
-            <a class="ripple" href="#!">
+            <a class="ripple" *ngFor="let item of files; let i = index">
                 <img alt="example" class="img-fluid rounded"
-                    src="https://mdbootstrap.com/img/new/standard/city/044.jpg" />
+                    src="../../assets/Themes/{{item.relativePath}}"/>
             </a>
         </div>
     </div>

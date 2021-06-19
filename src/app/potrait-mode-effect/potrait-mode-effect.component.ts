@@ -15,6 +15,7 @@ export class PotraitModeEffectComponent implements OnInit {
   ngOnInit(): void {
   }
   public files: NgxFileDropEntry[] = [];
+  relativePath: String = "../../assets/Themes/"
 
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
@@ -30,8 +31,8 @@ export class PotraitModeEffectComponent implements OnInit {
 
           /**
           // You could upload it like this:
-          const formData = new FormData()
-          formData.append('logo', file, relativePath)
+          // const formData = new FormData()
+          // formData.append('logo', file, relativePath)
 
           // Headers
           const headers = new HttpHeaders({
