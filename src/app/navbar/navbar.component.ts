@@ -1,20 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef  } from '@angular/core';
+import { ModalDirective } from 'angular-bootstrap-md';
+import { AuthorizationService } from './authorization.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  constructor(private user: AuthorizationService, private modalService: BsModalService) {}
+  
 
-  constructor() { }
-  errorEmail: boolean
-  loggedIn: boolean = true
+  errorEmail: boolean;
+  loggedIn: boolean = true;
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  async Login(email: String, password: String) {
+    this.user.chechkLogin(email, password);
+  }
+
+  async Signup(Name:String, Email:String, Password:String){
 
   }
-  async chechkLogin(email: String, password: String){
-    console.log(email, password)
+
+  modalRef: BsModalRef;
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

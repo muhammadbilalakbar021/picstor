@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,6 +16,7 @@ import { FacialFeaturesEditingComponent } from './facial-features-editing/facial
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 
 
 
@@ -38,10 +39,13 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     NgbModule,
     SlickCarouselModule,
     NgxFileDropModule,
-    DragDropModule
+    DragDropModule,
+    HttpClientModule,
+    ModalModule.forRoot(),
+     
 
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
