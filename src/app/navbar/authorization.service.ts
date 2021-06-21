@@ -16,10 +16,14 @@ export class AuthorizationService {
       console.log(res)) 
   }
 
-  AddUser(Name:String, Email:String, Password:String){
-    const obj = {Name, Email, Password}
-    // this.http.post(`${this.url}/addUser`, obj)    
-    console.log(Name, Email, Password)
+  AddUser(name:String, email:String, password:String){
+    const obj = {name, email, password}
+    console.log(obj)
+    this.http.post(`${this.url}/api/users/addUser`, obj, {responseType: 'json'})
+    .subscribe(res =>{
+      console.log(res)
+    })
+    
   }
 
   
