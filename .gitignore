@@ -8,7 +8,7 @@
 /bazel-out
 
 #model Path neural style
-py_picstor/neural_style_transfer_light_on_math_ml/vgg"
+py_picstor/neural_style_transfer_light_on_math_ml/vgg
 
 # dependencies
 /node_modules
