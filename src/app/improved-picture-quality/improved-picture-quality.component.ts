@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { IpqService } from './ipq.service'
 
 @Component({
   selector: 'app-improved-picture-quality',
@@ -9,12 +10,14 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 })
 export class ImprovedPictureQualityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ipq:IpqService) { }
 
   ngOnInit(): void {
   }
   public files: NgxFileDropEntry[] = [];
   relativePath: String = "../../assets/Themes/"
+  FileLoaded:boolean = false
+  convertedPic:any
 
   public dropped(files: NgxFileDropEntry[]) {
     this.files = files;
@@ -24,6 +27,7 @@ export class ImprovedPictureQualityComponent implements OnInit {
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
+          this.FileLoaded = true
 
           // Here you can access the real file
           console.log(droppedFile.relativePath, file);
@@ -54,19 +58,21 @@ export class ImprovedPictureQualityComponent implements OnInit {
   }
 
   public fileOver(event: any) {
-    console.log(event);
+    // console.log(event);
   }
 
   public fileLeave(event: any) {
-    console.log(event);
+    // console.log(event);
   }
 
-  timePeriods = [
-    'Bronze age',
-    'Iron age'
-  ];
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.timePeriods, event.previousIndex, event.currentIndex);
-  }
+ async check(){
+  this.ipq.chechkHello()
+  .subscribe(res =>{
+    console.log('called')
+    this.convertedPic = res
+    console.log(this.convertedPic)
+  })
+ }
+
 
 }

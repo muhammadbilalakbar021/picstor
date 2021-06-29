@@ -7,9 +7,15 @@
 # Only exists if Bazel was run
 /bazel-out
 
+#model Path neural style
+py_picstor/neural_style_transfer_light_on_math_ml/vgg"
+
 # dependencies
 /node_modules
 /Picstor_Backend/node_modules
+/py_picstor/venv
+/py_picstor/.idea
+/py_picstor/__pycache__
 
 # profiling files
 chrome-profiler-events*.json

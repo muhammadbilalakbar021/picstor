@@ -22,9 +22,6 @@ export class AuthorizationService {
     this.http.post(`${this.url}/api/users/addUser`, obj, {responseType: 'json'})
     .subscribe(res =>{
       console.log(res)
-    })
-    
+    })  
   }
-
-  
 }

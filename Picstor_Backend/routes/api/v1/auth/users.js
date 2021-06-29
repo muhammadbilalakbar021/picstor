@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const UserModel = require("../../../../models/user/UserModel");
 
-
 /* GET users listing. */
 router.post('/getUser', async(req, res)=> {
   try {
