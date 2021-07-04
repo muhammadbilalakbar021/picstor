@@ -61,6 +61,7 @@ export class FunFeaturesComponent implements OnInit {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
           this.FileLoaded = true;
+          console.log(droppedFile.relativePath)
 
           for(let i = 0; i < 6; i++){
             if(i != 1){
@@ -77,11 +78,11 @@ export class FunFeaturesComponent implements OnInit {
   }
 
 
-  async check() {
-    this.ipq.chechkHello().subscribe((res: any) => {
-      console.log('called');
-      this.convertedPic = res;
-      console.log(this.convertedPic);
-    });
-  }
+  // async check() {
+  //   this.ipq.chechkHello().subscribe((res: any) => {
+  //     console.log('called');
+  //     this.convertedPic = res;
+  //     console.log(this.convertedPic);
+  //   });
+  // }
 }
