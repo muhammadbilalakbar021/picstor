@@ -11,6 +11,6 @@ export class IpqService {
 
   getImprovedImage(PicName: string){
     const obj = {'pic':PicName}
-    return this.http.post(`${this.hostIp}/api/cartoonFilter`, obj,  { responseType: 'text' }) 
+    return this.http.post(`${this.hostIp}/api/ImageEnhancement`, obj,  { responseType: 'text' }) 
   }
 }

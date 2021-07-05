@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request
 from flask_cors import CORS, cross_origin
-
 from Cartoonify.cartoonify import Cartoonify
 from Filter.dog_filter import DogFilter
-import datetime
+from ImageEnhacement.imgE import EahanceImage
+from PortraitModeEffect.portraitmode import PotraitModeEff
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -13,8 +13,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/', methods=['GET', 'POST'])
 @cross_origin()
 def HelloWorld():
-    print("Hello World")
-    return {'Name': 'Bilal'}
+    return {'Name': 'Hello World'}
 
 
 @app.route('/api/dogFilter', methods=['GET', 'POST'])
@@ -41,5 +40,29 @@ def Cartoonfilter():
         return e
 
 
+@app.route('/api/ImageEnhancement', methods=['GET', 'POST'])
+@cross_origin()
+def ImageEnhancement():
+    content = request.json
+    try:
+        pic = content['pic']
+        obj = EahanceImage(pic)
+        return obj
+    except Exception as e:
+        return e
+
+
+@app.route('/api/PortraitModeEffect', methods=['GET', 'POST'])
+@cross_origin()
+def PortraitModeEffect():
+    content = request.json
+    try:
+        pic = content['pic']
+        obj = PotraitModeEff(pic)
+        return obj
+    except Exception as e:
+        return e
+
+
 if __name__ == '__main__':
-  app.run(debug=True)
+    app.run(debug=True)
