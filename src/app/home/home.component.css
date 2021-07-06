@@ -50,7 +50,7 @@ header,
   height: 100%;
 }
 .img1 {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 15vw !important;
+  object-fit: cover !important;
 }
