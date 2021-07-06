@@ -1,38 +1,43 @@
-import numpy as np
-import imageio
-import scipy.ndimage
 import cv2
-
-# take image input and assign variable to it
-img = "test2.jpeg"
-
-
-# function to convert image into sketch
-def rgb2gray(rgb):
-    # 2 dimensional array to convert image to sketch
-    return np.dot(rgb[..., :3], [0.2989, 0.5870, .1140])
+import numpy as np
+import base64
+from rootPath import get_root_path
 
 
-def dodge(front, back):
-    # if image is greater than 255 (which is not possible) it will convert it to 255
-    final_sketch = front * 255 / (255 - back)
-    final_sketch[final_sketch > 255] = 255
-    final_sketch[back == 255] = 255
+class Sketch:
+    def __init__(self, i_Image):
+        self.img = cv2.imread('../src/assets/images/' + i_Image)
+        self.output = '../src/assets/images/'
 
-    # to convert any suitable existing column to categorical type we will use apect function
-    # and uint8 is for 8-bit signed integer
-    return final_sketch.astype('uint8')
+    def applySketch(self):
+        scale_percent = 0.50
 
+        width = int(self.img.shape[1] * scale_percent)
+        height = int(self.img.shape[0] * scale_percent)
 
-ss = imageio.imread(img)
-gray = rgb2gray(ss)
+        dim = (width, height)
+        resized = cv2.resize(self.img, dim, interpolation=cv2.INTER_AREA)
 
-i = 255 - gray
+        kernel_sharpening = np.array([[-1, -1, -1],
+                                      [-1, 9, -1],
+                                      [-1, -1, -1]])
+        sharpened = cv2.filter2D(resized, -1, kernel_sharpening)
 
-# to convert into a blur image
-blur = scipy.ndimage.filters.gaussian_filter(i, sigma=13)
+        gray = cv2.cvtColor(sharpened, cv2.COLOR_BGR2GRAY)
+        inv = 255 - gray
+        gauss = cv2.GaussianBlur(inv, ksize=(15, 15), sigmaX=0, sigmaY=0)
+        dodge = cv2.divide(gray, 255 - gauss, scale=256)
+        pencil_jc = dodge
 
-# calling the fuction
-r = dodge(blur, gray)
+        cv2.imwrite(self.output + 'Result.jpg', pencil_jc)
+        img = self.sendBase64()
+        return img
 
-cv2.imwrite('Result.png', r)
+    def sendBase64(self):
+        test = cv2.imread('Result.jpg')
+        string = "data:image/png;base64,"+base64.b64encode(cv2.imencode('.jpg', test)[1]).decode()
+        return string
+
+# if __name__ == "__main__":
+#     test = Sketch(get_root_path() + '/Images/Input/test2.jpeg')
+#     test.applySketch()
