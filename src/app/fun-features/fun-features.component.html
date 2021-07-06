@@ -29,11 +29,6 @@
                 (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                 <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
                     Dog Filter
-                    <!-- <button type="button" cdkDrag style="position: absolute; right: 0; bottom: 0"
-                    (click)="openFileSelector()">
-                    Browse Files
-                </button> -->
-
                 </ng-template>
             </ngx-file-drop>
         </div>
@@ -104,13 +99,13 @@
             </ngx-file-drop>
         </div>
     <!-- </div> -->
-    <div class="col-md-6  mt-5 center" *ngIf="FileLoaded">
+    <!-- <div class="col-md-6  mt-5 center" *ngIf="FileLoaded">
             <a class="ripple" *ngFor="let item of files; let i = index" >
                 <img alt="example" class="img-fluid rounded" src="../../assets/images/{{item.relativePath}}" />
             </a>
-            <button type="button" class="btn btn-outline-info cdkButton" cdkDrag >Convert</button>
+            <button type="button" class="btn btn-outline-info cdkButton" cdkDrag (click)="convertDog()" >Convert</button>
         </div>
-    </div>
+    </div> -->
     <div class="center">
         <div class="upload-table">
             <img alt="example" class="img-fluid rounded" [src]='convertedPic'/>

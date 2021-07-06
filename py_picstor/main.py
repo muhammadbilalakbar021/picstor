@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from flask_cors import CORS, cross_origin
 from Cartoonify.cartoonify import Cartoonify
+# from FaceEditing.test import ffe
 from Filter.dog_filter import DogFilter
 from ImageEnhacement.imgE import EahanceImage
 from PortraitModeEffect.portraitmode import PotraitModeEff
@@ -96,6 +97,18 @@ def PortraitModeEffect():
         pic = content['pic']
         obj = PotraitModeEff(pic)
         return obj
+    except Exception as e:
+        return e
+
+
+@app.route('/api/FacialFeatureEditing', methods=['GET', 'POST'])
+@cross_origin()
+def FacialFeatureEditing():
+    content = request.json
+    try:
+        pic = content['pic']
+        # obj = ffe(pic)
+        return "obj"
     except Exception as e:
         return e
 

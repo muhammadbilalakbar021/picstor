@@ -5,7 +5,7 @@ import {
   FileSystemDirectoryEntry,
 } from 'ngx-file-drop';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { IpqService } from '../improved-picture-quality/ipq.service';
+import { FfeatureService } from './ffeature.service';
 
 @Component({
   selector: 'app-fun-features',
@@ -13,7 +13,7 @@ import { IpqService } from '../improved-picture-quality/ipq.service';
   styleUrls: ['./fun-features.component.css'],
 })
 export class FunFeaturesComponent implements OnInit {
-  constructor(private ipq: IpqService) {}
+  constructor(private ffs: FfeatureService) {}
 
   ngOnInit(): void {}
   public files: NgxFileDropEntry[] = [];
@@ -78,11 +78,11 @@ export class FunFeaturesComponent implements OnInit {
   }
 
 
-  // async check() {
-  //   this.ipq.chechkHello().subscribe((res: any) => {
-  //     console.log('called');
-  //     this.convertedPic = res;
-  //     console.log(this.convertedPic);
-  //   });
-  // }
+  async convertDog() {
+    this.ffs.getDogFilter(this.files[0].relativePath).subscribe((res: any) => {
+      console.log('called');
+      this.convertedPic = res;
+      console.log(this.convertedPic);
+    });
+  }
 }
