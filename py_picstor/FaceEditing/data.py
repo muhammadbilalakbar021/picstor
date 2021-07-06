@@ -26,8 +26,8 @@ class Custom(data.Dataset):
         if index == 6:
             # print(cv2.imread('../Result.jpg'))
             # print(os.listdir(r'../Result.jpg'))
-            print(os.path.join('../../', self.images[index]))
-            img = self.tf(Image.open('../test.jpg'))
+            print(os.path.join('../src/assets/images/', self.images[index]))
+            img = self.tf(Image.open('../src/assets/images/test.jpg'))
             att = torch.tensor((self.labels[index] + 1) // 2)
             return img, att
         else:
