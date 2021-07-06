@@ -3,9 +3,9 @@ from flask_cors import CORS, cross_origin
 from Cartoonify.cartoonify import Cartoonify
 # from FaceEditing.test import ffe
 from Filter.dog_filter import DogFilter
+from Filter.hatglass import HatGlassesFilter
 from ImageEnhacement.imgE import EahanceImage
 from PortraitModeEffect.portraitmode import PotraitModeEff
-
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -31,14 +31,14 @@ def Dogfilter():
 
 @app.route('/api/hatGlassesFilter', methods=['GET', 'POST'])
 @cross_origin()
-def HatGlassesFilter():
+def HatGlassesF():
     content = request.json
-    try:
-        pic = content['pic']
-        obj = HatGlassesFilter(pic)
-        return obj.applyFilter()
-    except Exception as e:
-        return e
+    # try:
+    pic = content['pic']
+    obj = HatGlassesFilter(pic)
+    return obj.applyFilter()
+    # except Exception as e:
+    #     return e
 
 
 @app.route('/api/sketch', methods=['GET', 'POST'])

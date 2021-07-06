@@ -12,5 +12,11 @@ export class FfeatureService {
   getDogFilter(PicName: string){
     const obj = {'pic':PicName}
     return this.http.post(`${this.hostIp}/api/dogFilter`, obj,  { responseType: 'text' }) 
-  }}
+  }
+
+  getHatGlass(PicName: string){
+    const obj = {'pic':PicName}
+    return this.http.post(`${this.hostIp}/api/hatGlassesFilter`, obj,  { responseType: 'text' }) 
+  }
+}
 

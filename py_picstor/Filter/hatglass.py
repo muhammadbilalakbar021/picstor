@@ -16,7 +16,7 @@ class HatGlassesFilter:
         return string
 
     def applyFilter(self):
-        face = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+        face = cv2.CascadeClassifier('./Filter/haarcascade_frontalface_default.xml')
         gray = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
         fl = face.detectMultiScale(gray, 1.09, 7)
         ey = face.detectMultiScale(gray, 1.09, 7)
@@ -26,7 +26,7 @@ class HatGlassesFilter:
         for (x, y, w, h) in ey:
             frame = self.put_glass(x, y, w, h)
 
-        cv2.imwrite(self.output + 'Result.jpg', frame)
+        cv2.imwrite('Result.jpg', frame)
         print(type(frame))
         img = self.sendBase64()
         return img

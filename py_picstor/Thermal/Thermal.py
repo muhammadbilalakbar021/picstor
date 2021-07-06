@@ -10,7 +10,7 @@ class Thermal:
 
     def applyThermal(self):
         heatmap = cv2.applyColorMap(self.img, cv2.COLORMAP_HSV)
-        cv2.imwrite(self.output + 'Result.jpg', heatmap)
+        cv2.imwrite('Result.jpg', heatmap)
 
         img = self.sendBase64()
         return img

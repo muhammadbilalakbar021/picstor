@@ -36,6 +36,7 @@ export class FunFeaturesComponent implements OnInit {
               this.isShow[i] = false
             }
           }
+          this.convertDog()
         });
       } else {
         // It was a directory (empty directories are added, otherwise only files)
@@ -68,6 +69,8 @@ export class FunFeaturesComponent implements OnInit {
               this.isShow[i] = false
             }
           }
+
+          this.convertHatGlass()
         });
       } else {
         // It was a directory (empty directories are added, otherwise only files)
@@ -85,4 +88,13 @@ export class FunFeaturesComponent implements OnInit {
       console.log(this.convertedPic);
     });
   }
+
+  async convertHatGlass() {
+    this.ffs.getHatGlass(this.files[0].relativePath).subscribe((res: any) => {
+      console.log('called');
+      this.convertedPic = res;
+      console.log(this.convertedPic);
+    });
+  }
+  
 }
