@@ -28,6 +28,42 @@ def Dogfilter():
         return e
 
 
+@app.route('/api/hatGlassesFilter', methods=['GET', 'POST'])
+@cross_origin()
+def HatGlassesFilter():
+    content = request.json
+    try:
+        pic = content['pic']
+        obj = HatGlassesFilter(pic)
+        return obj.applyFilter()
+    except Exception as e:
+        return e
+
+
+@app.route('/api/sketch', methods=['GET', 'POST'])
+@cross_origin()
+def Sketch():
+  content = request.json
+  try:
+    pic = content['pic']
+    obj = Sketch(pic)
+    return obj.applySketch()
+  except Exception as e:
+    return e
+
+
+@app.route('/api/thermal', methods=['GET', 'POST'])
+@cross_origin()
+def Thermal():
+  content = request.json
+  try:
+    pic = content['pic']
+    obj = Thermal(pic)
+    return obj.applyThermal()
+  except Exception as e:
+    return e
+
+
 @app.route('/api/cartoonFilter', methods=['GET', 'POST'])
 @cross_origin()
 def Cartoonfilter():

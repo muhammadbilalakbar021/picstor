@@ -10,7 +10,7 @@ class DogFilter:
         self.frame = ""
 
     def sendBase64(self):
-        test = cv2.imread('DogResult.jpg')
+        test = cv2.imread('Result.jpg')
         string = "data:image/png;base64,"+base64.b64encode(cv2.imencode('.jpg', test)[1]).decode()
         return string
 
@@ -23,7 +23,7 @@ class DogFilter:
             frame = self.put_dog_filter(x, y, w, h)
         self.frame = frame
 
-        cv2.imwrite('DogResult.jpg', frame)
+        cv2.imwrite('Result.jpg', frame)
         print(type(frame))
         img = self.sendBase64()
         return img

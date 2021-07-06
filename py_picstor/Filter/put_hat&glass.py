@@ -1,14 +1,19 @@
 import cv2
-
-from rootPath import get_root_path
+import base64
 
 
 class HatGlassesFilter:
-    def __init__(self, i_Image, g_Image, h_Image):
-        self.img = cv2.imread(i_Image)
-        self.g_filter = cv2.imread(g_Image)
-        self.h_filter = cv2.imread(h_Image)
-        self.output = get_root_path() + '/Images/Output/'
+    def __init__(self, i_Image):
+        self.img = cv2.imread('../src/assets/images/' + i_Image)
+        self.g_filter = cv2.imread('./Images/Input/Filters/glasses.png')
+        self.h_filter = cv2.imread('./Images/Input/Filters/hat.png')
+        self.output = '../src/assets/images/'
+        self.frame = ""
+
+    def sendBase64(self):
+        test = cv2.imread('Result.jpg')
+        string = "data:image/png;base64,"+base64.b64encode(cv2.imencode('.jpg', test)[1]).decode()
+        return string
 
     def applyFilter(self):
         face = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -21,7 +26,10 @@ class HatGlassesFilter:
         for (x, y, w, h) in ey:
             frame = self.put_glass(x, y, w, h)
 
-        cv2.imwrite(self.output + 'HatGlassResult.jpg', frame)
+        cv2.imwrite(self.output + 'Result.jpg', frame)
+        print(type(frame))
+        img = self.sendBase64()
+        return img
 
     def put_hat(self, x, y, w, h):
         face_width = w
@@ -53,9 +61,9 @@ class HatGlassesFilter:
                         self.img[y + i - int(-0.20 * face_height)][x + j][k] = glass[i][j][k]
         return self.img
 
-
-if __name__ == "__main__":
-    test = HatGlassesFilter(get_root_path() + '/Images/Input/people.jpg',
-                            get_root_path() + '/Images/Input/Filters/glasses.png',
-                            get_root_path() + '/Images/Input/Filters/hat.png')
-    test.applyFilter()
+#
+# if __name__ == "__main__":
+#     test = HatGlassesFilter(get_root_path() + '/Images/Input/people.jpg',
+#                             get_root_path() + '/Images/Input/Filters/glasses.png',
+#                             get_root_path() + '/Images/Input/Filters/hat.png')
+#     test.applyFilter()
