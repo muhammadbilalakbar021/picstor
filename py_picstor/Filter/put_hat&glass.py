@@ -11,7 +11,7 @@ class HatGlassesFilter:
         self.frame = ""
 
     def sendBase64(self):
-        test = cv2.imread('HatGlassResult.jpg')
+        test = cv2.imread('Result.jpg')
         string = "data:image/png;base64,"+base64.b64encode(cv2.imencode('.jpg', test)[1]).decode()
         return string
 
@@ -26,7 +26,7 @@ class HatGlassesFilter:
         for (x, y, w, h) in ey:
             frame = self.put_glass(x, y, w, h)
 
-        cv2.imwrite(self.output + 'HatGlassResult.jpg', frame)
+        cv2.imwrite(self.output + 'Result.jpg', frame)
         print(type(frame))
         img = self.sendBase64()
         return img
