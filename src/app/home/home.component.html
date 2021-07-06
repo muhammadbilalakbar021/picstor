@@ -64,20 +64,19 @@
                     <br><br><br>
                     <h2><strong>Portrait Mode Effect</strong></h2>
                     <p class="text-muted">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
-                        eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
-                        sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+                        Portrait mode is the orientation of the page that prints the image vertically across the page
+                        instead of horizontally. By default, all programs have the page orientation and printer pages
+                        setup in portrait mode. The image is an example of the printer paper orientation set up through
+                        the printer options in Microsoft Windows. As you can see, the top example is a paper orientation
+                        selected as portrait and the bottom is selected as Landscape.
                     </p>
-                    <p><strong>Doloremque vero ex debitis veritatis?</strong></p>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
-                        nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
-                        alias, unde optio accusantium soluta, iusto molestiae adipisci et?
-                    </p>
+                    
+                  
                 </div>
                 <div class="col-md-8 gx-5 mb-4">
                     <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
-                        <img src="https://www.xda-developers.com/files/2017/10/Google-Discusses-the-Tech-Used-to-Emulate-Bokeh-on-the-Pixel-2.jpg" class="img-fluid" />
+                        <img src="https://www.xda-developers.com/files/2017/10/Google-Discusses-the-Tech-Used-to-Emulate-Bokeh-on-the-Pixel-2.jpg"
+                            class="img-fluid" />
                         <a href="#!">
                             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                         </a>
@@ -88,7 +87,8 @@
             <div class="row">
                 <div class="col-md-8 gx-5 mb-4">
                     <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
-                        <img src="https://cdn.pizap.com/pizapfiles/images/face_editor_touch_up_app05.jpg" class="img-fluid" />
+                        <img src="https://cdn.pizap.com/pizapfiles/images/face_editor_touch_up_app05.jpg"
+                            class="img-fluid" />
                         <a href="#!">
                             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                         </a>
@@ -98,16 +98,9 @@
                 <div class="col-md-4 gx-5 mb-4">
                     <h4><strong>Facial Features Editing</strong></h4>
                     <p class="text-muted">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
-                        eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
-                        sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+                        The purpose of this is to correlate the facial features of the two faces. The goal of this project is to develop a graphical editor in which the artists can define the feature points for a face model. The feature points will be saved in a file format that can be used in a Facial Motion Cloning software.
                     </p>
-                    <p><strong>Doloremque vero ex debitis veritatis?</strong></p>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
-                        nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
-                        alias, unde optio accusantium soluta, iusto molestiae adipisci et?
-                    </p>
+                    
                 </div>
             </div>
 
@@ -115,16 +108,9 @@
                 <div class="col-md-4 gx-5 mb-4">
                     <h4><strong>Fun Features</strong></h4>
                     <p class="text-muted">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
-                        eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
-                        sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
+                        Funny Image Photo . Photography is all about fun and it is well proven by this Website. So if you are searching for a free of cost photo editing platform to have real fun on your phone then simply go to Fun Features section and get started with real adventure.
                     </p>
-                    <p><strong>Doloremque vero ex debitis veritatis?</strong></p>
-                    <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
-                        nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
-                        alias, unde optio accusantium soluta, iusto molestiae adipisci et?
-                    </p>
+                  
                 </div>
                 <div class="col-md-8 gx-5 mb-4">
                     <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5" data-mdb-ripple-color="light">
@@ -143,26 +129,26 @@
     <div class="container">
         <hr class="my-5">
     </div>
-        <!--Section: Examples-->
-        <section id="examples" class="text-center">
+    <!--Section: Examples-->
+    <section id="examples" class="text-center">
 
-            <!-- Heading -->
-            <h2 class="mb-5 font-weight-bold">Stunning Examples</h2>
-            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
-                (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
-                (beforeChange)="beforeChange($event)">
-                <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-                    <img src="{{ slide.img }}" alt="" width="100%">
-                </div>
-            </ngx-slick-carousel>
+        <!-- Heading -->
+        <h2 class="mb-5 font-weight-bold">Stunning Examples</h2>
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+            (init)="slickInit($event)" (breakpoint)="breakpoint($event)" (afterChange)="afterChange($event)"
+            (beforeChange)="beforeChange($event)">
+            <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                <img class="img-fluid w-100" src="{{ slide.img }}" alt="" width="100%">
+            </div>
+        </ngx-slick-carousel>
 
-        </section>
-        <!--Section: Examples-->
+    </section>
+    <!--Section: Examples-->
 </main>
 <!--Main layout-->
 <main class="mt-5">
     <div class="container">
-        
+
 
         <hr class="my-5">
 
