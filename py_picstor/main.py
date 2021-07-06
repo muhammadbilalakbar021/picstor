@@ -28,6 +28,17 @@ def Dogfilter():
         return e
 
 
+@app.route('/api/dogFilter', methods=['GET', 'POST'])
+@cross_origin()
+def HatGlassesFilter():
+    content = request.json
+    try:
+        pic = content['pic']
+        obj = HatGlassesFilter(pic)
+        return obj.applyFilter()
+    except Exception as e:
+        return e
+
 @app.route('/api/cartoonFilter', methods=['GET', 'POST'])
 @cross_origin()
 def Cartoonfilter():
