@@ -61,7 +61,7 @@
     
         <div class="col-md-4 mt-5 center" *ngIf="isShow[3]">
             <ngx-file-drop [dropZoneClassName]="'upload-background-image'" dropZoneLabel="Drop files here"
-                (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                (onFileDrop)="detectThermal($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                 <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
                     Thermal
                     <!-- <button type="button" cdkDrag style="position: absolute; right: 0; bottom: 0"
@@ -74,7 +74,7 @@
         </div>
         <div class="col-md-4 mt-5 center" *ngIf="isShow[4]">
             <ngx-file-drop [dropZoneClassName]="'upload-background-image'" dropZoneLabel="Drop files here"
-                (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                (onFileDrop)="detectCartoonify($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                 <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
                     Cartoonify
                     <!-- <button type="button" cdkDrag style="position: absolute; right: 0; bottom: 0"
@@ -87,7 +87,7 @@
         </div>
         <div class="col-md-4 mt-5 center" *ngIf="isShow[5]">
             <ngx-file-drop [dropZoneClassName]="'upload-background-image'" dropZoneLabel="Drop files here"
-                (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                (onFileDrop)="detectSketch($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                 <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
                     Sketch
                     <!-- <button type="button" cdkDrag style="position: absolute; right: 0; bottom: 0"

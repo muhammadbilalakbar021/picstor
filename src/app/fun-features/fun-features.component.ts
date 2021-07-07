@@ -81,6 +81,85 @@ export class FunFeaturesComponent implements OnInit {
   }
 
 
+  public detectCartoonify(files: NgxFileDropEntry[]) {
+    this.files = files;
+    for (const droppedFile of files) {
+      // Is it a file?
+      if (droppedFile.fileEntry.isFile) {
+        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+        fileEntry.file((file: File) => {
+          this.FileLoaded = true;
+          console.log(droppedFile.relativePath)
+
+          for(let i = 0; i < 6; i++){
+            if(i != 4){
+              this.isShow[i] = false
+            }
+          }
+
+          this.convertCaroonify()
+        });
+      } else {
+        // It was a directory (empty directories are added, otherwise only files)
+        const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
+        console.log(droppedFile.relativePath, fileEntry);
+      }
+    }
+  }
+
+  public detectThermal(files: NgxFileDropEntry[]) {
+    this.files = files;
+    for (const droppedFile of files) {
+      // Is it a file?
+      if (droppedFile.fileEntry.isFile) {
+        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+        fileEntry.file((file: File) => {
+          this.FileLoaded = true;
+          console.log(droppedFile.relativePath)
+
+          for(let i = 0; i < 6; i++){
+            if(i != 3){
+              this.isShow[i] = false
+            }
+          }
+
+          this.convertThermal()
+        });
+      } else {
+        // It was a directory (empty directories are added, otherwise only files)
+        const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
+        console.log(droppedFile.relativePath, fileEntry);
+      }
+    }
+  }
+
+
+  public detectSketch(files: NgxFileDropEntry[]) {
+    this.files = files;
+    for (const droppedFile of files) {
+      // Is it a file?
+      if (droppedFile.fileEntry.isFile) {
+        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+        fileEntry.file((file: File) => {
+          this.FileLoaded = true;
+          console.log(droppedFile.relativePath)
+
+          for(let i = 0; i < 6; i++){
+            if(i != 5){
+              this.isShow[i] = false
+            }
+          }
+
+          this.convertSketch()
+        });
+      } else {
+        // It was a directory (empty directories are added, otherwise only files)
+        const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
+        console.log(droppedFile.relativePath, fileEntry);
+      }
+    }
+  }
+
   async convertDog() {
     this.ffs.getDogFilter(this.files[0].relativePath).subscribe((res: any) => {
       console.log('called');
@@ -97,4 +176,28 @@ export class FunFeaturesComponent implements OnInit {
     });
   }
   
+
+  async convertCaroonify() {
+    this.ffs.getCartoon(this.files[0].relativePath).subscribe((res: any) => {
+      console.log('called');
+      this.convertedPic = res;
+      console.log(this.convertedPic);
+    });
+  }
+
+  async convertThermal() {
+    this.ffs.getthermal(this.files[0].relativePath).subscribe((res: any) => {
+      console.log('called');
+      this.convertedPic = res;
+      console.log(this.convertedPic);
+    });
+  }
+
+  async convertSketch() {
+    this.ffs.getSketch(this.files[0].relativePath).subscribe((res: any) => {
+      console.log('called');
+      this.convertedPic = res;
+      console.log(this.convertedPic);
+    });
+  }
 }
