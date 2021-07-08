@@ -11,6 +11,6 @@ export class FfeService {
 
   getFacialFeatureEdiedImage(PicName: string){
     const obj = {'pic':PicName}
-    return this.http.post(`${this.hostIp}/api/PortraitModeEffect`, obj,  { responseType: 'text' }) 
+    return this.http.post(`${this.hostIp}/api/FacialFeatureEditing`, obj,  { responseType: 'text' }) 
   }
 }

@@ -29,7 +29,7 @@ class Sketch:
         dodge = cv2.divide(gray, 255 - gauss, scale=256)
         pencil_jc = dodge
 
-        cv2.imwrite(self.output + 'Result.jpg', pencil_jc)
+        cv2.imwrite('Result.jpg', pencil_jc)
         img = self.sendBase64()
         return img
 

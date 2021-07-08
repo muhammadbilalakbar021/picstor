@@ -62,3 +62,7 @@ wrapt==1.12.1
 zipp==3.4.1
 
 Flask~=2.0.1
+dlib >= 19.9.0
+numpy >= 1.13.1
+scipy >= 0.18.0
+

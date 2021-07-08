@@ -1,11 +1,12 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from Cartoonify.cartoonify import Cartoonify
-# from FaceEditing.test import ffe
+from FaceSwap.faceedit import faceEdit
 from Filter.dog_filter import DogFilter
 from Filter.hatglass import HatGlassesFilter
 from ImageEnhacement.imgE import EahanceImage
 from PortraitModeEffect.portraitmode import PotraitModeEff
+from Sketch.Sketch import Sketch
 from Thermal.Thermal import Thermal
 
 app = Flask(__name__)
@@ -45,7 +46,7 @@ def HatGlassesF():
 
 @app.route('/api/sketch', methods=['GET', 'POST'])
 @cross_origin()
-def Sketch():
+def SketchFilter():
   content = request.json
   try:
     pic = content['pic']
@@ -107,12 +108,12 @@ def PortraitModeEffect():
 @cross_origin()
 def FacialFeatureEditing():
   content = request.json
-  try:
-    pic = content['pic']
-    # obj = ffe(pic)
-    return "obj"
-  except Exception as e:
-    return e
+  # try:
+  pic = content['pic']
+  obj = faceEdit(pic)
+  return obj
+  # except Exception as e:
+  #   return e
 
 
 if __name__ == '__main__':
