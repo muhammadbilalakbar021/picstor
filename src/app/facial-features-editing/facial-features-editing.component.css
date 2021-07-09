@@ -85,3 +85,8 @@ header,
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+.img2{
+  height: 36vh;
+  width: 95%;
+  object-fit: cover;
+}

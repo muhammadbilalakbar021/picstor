@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
 
   async Signup(Name:String, Email:String, Password:String){
     this.user.AddUser(Name, Email, Password)
-
+    
   }
 
   modalRef: BsModalRef;

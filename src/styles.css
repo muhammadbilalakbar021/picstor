@@ -5,7 +5,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .upload-background-image{
-    height: 500px;
+    height: 200px;
     border-style: dashed;
     border-color: aqua;
 }

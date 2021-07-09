@@ -22,9 +22,9 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container mb-5">
     <div class="row">
-        <div class="col-md-6 mt-5 center" #mainScreen>
+        <div class="col-md-12 mt-5 center" #mainScreen>
             <ngx-file-drop [dropZoneClassName]="'upload-background-image'" dropZoneLabel="Drop files here" 
                 (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
                 <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
@@ -36,25 +36,32 @@
                 </ng-template>
             </ngx-file-drop>
         </div>
+        <div class="row">
         <div class="col-md-6  mt-5 center">
-            <div class="view imageHW" *ngFor="let item of files; let i = index">
-                <img src="../../assets/images/{{item.relativePath}}" class="img-fluid w-100" alt="">
-                <div class="mask pattern-1 flex-center rgba-stylish-light">
-                    <!-- <a class="white-text">Convert Pic</a> -->
-                </div>
-            </div>
-            <button *ngIf="FileLoaded" type="button" class="btn btn-outline-info cdkButton" cdkDrag
-                (click)="check()">Convert</button>
+            
+            <div class="view imageHW " *ngFor="let item of files; let i = index">
+                <img src="../../assets/images/{{item.relativePath}}" class="img-fluid w-100 img2" alt="">
+                <button *ngIf="FileLoaded" type="button" class="btn btn-outline-light cdkButton" cdkDrag
+        (click)="check()">Convert</button>
+            
+         
             <!-- <a class="ripple" *ngFor="let item of files; let i = index">
                 <img alt="example" class="img-fluid rounded" src="../../assets/images/{{item.relativePath}}" />
             </a>
             <button *ngIf="FileLoaded" type="button" class="btn btn-outline-info cdkButton" cdkDrag
                 (click)="check()">Convert</button> -->
+            </div>
+           
+        </div>
+        
+        <div class="col-md-6 mt-5 center" *ngIf="convertedPic">
+            <div class="center">
+                <div class="upload-table">
+                    <img class="img-fluid rounded img2" [src]='convertedPic'/>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="center">
-        <div class="upload-table">
-            <img alt="example" class="img-fluid rounded" [src]='convertedPic' />
-        </div>
     </div>
+    
 </div>
