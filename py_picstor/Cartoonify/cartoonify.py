@@ -32,7 +32,7 @@ class Cartoonify:
         return edges
 
     def sendBase64(self):
-        test = cv2.imread('DogResult.jpg')
+        test = cv2.imread('Result.jpg')
         string = "data:image/png;base64,"+base64.b64encode(cv2.imencode('.jpg', test)[1]).decode()
         return string
 
@@ -44,7 +44,7 @@ class Cartoonify:
         img = self.color_quantization()
         blurred = cv2.bilateralFilter(img, d=7, sigmaColor=200, sigmaSpace=200)
         cartoon = cv2.bitwise_and(blurred, blurred, mask=edges)
-        cv2.imwrite('DogResult.jpg', cartoon)
+        cv2.imwrite('Result.jpg', cartoon)
         img = self.sendBase64()
         return img
 
