@@ -26,13 +26,3 @@ def sendBase64():
     string = "data:image/png;base64,"+base64.b64encode(cv2.imencode('.jpg', test)[1]).decode()
     return string
 
-# if __name__ == "__main__":
-#     # arg_parser = create_arg_parser()
-#     # parsed_args = arg_parser.parse_args(sys.argv[1:])
-#     file_path = 'samples/test3.jpeg'
-#     print(file_path)
-#     if os.path.exists(file_path):
-#         print("File exists.")
-#         img, output_file_name = execute_portrait_mode(file_path)
-#         img.save(output_file_name, quality=100)
-#         print("New image created successfully!")
